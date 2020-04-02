@@ -23,7 +23,7 @@ var chartGroup = svg.append("g")
   .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
 // Import data
-d3.csv("data.csv").then(function(data) {
+d3.csv("../data.csv").then(function(data) {
 
     // Parse data/Cast as numbers: poverty vs healthcare
     data.forEach(function(data) {
