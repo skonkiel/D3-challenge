@@ -23,7 +23,7 @@ var chartGroup = svg.append("g")
   .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
 // Import data
-d3.csv("../data.csv").then(function(data) {
+d3.csv("data.csv").then(function(data) {
 
     // Parse data/Cast as numbers: poverty vs healthcare
     data.forEach(function(data) {
@@ -38,7 +38,7 @@ d3.csv("../data.csv").then(function(data) {
 
     var yLinearScale = d3.scaleLinear()
       .domain([0, d3.max(data, d => d.healthcare) + 2])
-      .range([height, d3.max(data, d => d.healthcare)]); // @TODO get this to 6 min
+      .range([height, d3.max(data, d => d.healthcare)]); 
 
     // Step 3: Create axis functions
     var bottomAxis = d3.axisBottom(xLinearScale);
@@ -76,46 +76,8 @@ d3.csv("../data.csv").then(function(data) {
     dotsEnter.append("text")
       .attr("dx", d => xLinearScale(d.poverty))
       .attr("dy", d => yLinearScale(d.healthcare)+5)
-      // .attr("dx", function(d) {return -20})
       .classed("stateText", true)
       .text(d => d.abbr);
-
-
-    // var circlesGroup = chartGroup.selectAll("circle")
-    //   .data(data)
-    //   .enter()
-    //   .append("circle")
-    //     .attr("cx", d => xLinearScale(d.poverty))
-    //     .attr("cy", d => yLinearScale(d.healthcare))
-    //     .attr("r", "15")
-    //     .attr("fill", "blue")
-    //     .attr("opacity", ".75")
-    //     .classed("stateCircle", true)
-    //   .append("text")
-    //     // .attr("x", function(d){return -20})
-    //     // .attr("dx", function(d){return -20})
-    //     // .attr("dy", function(d){return -20})
-    //     .attr("cx", d => xLinearScale(d.poverty))
-    //     .attr("cy", d => yLinearScale(d.healthcare))
-    //     .classed("stateText", true)
-    //     .text(function(d){return d.abbr});
-
-      // append text to circles
-      // Include state abbreviations in the circles.
-
-      // https://developer.mozilla.org/en-US/docs/Web/SVG/Element/text
-      // http://bl.ocks.org/ChrisJamesC/4474971
-      // https://www.d3indepth.com/selections/
-
-    // circlesGroup.selectAll("text")
-    //   .data(data)
-    //   .enter()
-    //   .append("text")
-    //     // .attr("x", function(d){return -20})
-    //     .attr("dx", function(d){return -20})
-    //     .attr("dy", function(d){return -20})
-    //     .classed("stateText", true)
-    //     .text(function(d){return d.abbr});
 
     // Initialize tool tip
     var toolTip = d3.tip()
