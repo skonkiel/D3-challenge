@@ -11,6 +11,11 @@
   text-anchor: middle;
 }
 
+.article {
+  margin-top: 30px;
+  margin-bottom: 100px;
+}
+
 .inactive {
   font-weight: lighter;
   fill: #c9c9c9;
@@ -21,6 +26,11 @@
 .inactive:hover {
   fill: #000;
   cursor: pointer;
+}
+
+.header {
+  margin-top: 25px;
+  font-family: Georgia, 'Times New Roman', Times, serif
 }
 
 /* font size dependent on radius, see app.js */
@@ -40,6 +50,10 @@
   margin: 0;
 }
 
+.axisText {
+  font-weight: 500;
+}
+
 .d3-tip {
   padding: 6px;
   font-size: 12px;
@@ -50,6 +64,10 @@
   text-transform: capitalize;
   background: rgba(0, 0, 0, 0.8);
   border-radius: 4px;
+}
+
+p {
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 /* Mobile Rules */

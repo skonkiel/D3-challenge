@@ -64,7 +64,7 @@ d3.csv("data.csv").then(function(data) {
       // .attr("transform", function(d) {return "translate("+d.x+",80"});
     
       // Create Circles
-    var circle = dotsEnter.append("circle")
+    dotsEnter.append("circle")
       .attr("cx", d => xLinearScale(d.poverty))
       .attr("cy", d => yLinearScale(d.healthcare))
       .attr("r", "15")
@@ -140,8 +140,8 @@ d3.csv("data.csv").then(function(data) {
     // Create axes labels
     chartGroup.append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", 0 - margin.left + 40)
-      .attr("x", 0 - (height / 2))
+      .attr("y", 0 - margin.left + 20)
+      .attr("x", 0 - (height/1.5))
       .attr("dy", "1em")
       .attr("class", "axisText")
       .text("Lacks Healthcare (%)");
